@@ -1,5 +1,5 @@
 {
-  "name": "Movieswebsiteserver",
+  "name": "movieswebsiteserver",
   "version": "1.0.0",
   "description": "Movieswebsiteserver",
   "main": "./src/app.ts",
