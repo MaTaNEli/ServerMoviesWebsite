@@ -9,6 +9,7 @@ app.use(cors({credentials: true, origin: '*'}));
 
 // Fetch all the routes for the application
 import homaPage from './routes/homaPage';
+import detailedMovie from './routes/detailedMovie'
 
 function errHandler(req: Request, res: Response){
   res.status(404).json({error: "Sorry could not find the page"});
@@ -16,6 +17,7 @@ function errHandler(req: Request, res: Response){
 
 // Routes
 app.use('/', homaPage);
+app.use('/', detailedMovie)
 
 
 
