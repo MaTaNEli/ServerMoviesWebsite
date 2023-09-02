@@ -1,10 +1,8 @@
 import { Request, Response } from 'express';
 import axios from 'axios';
-
 const apiUrl = process.env.MOVIE_PNG_PREFIX;
 
 export const getDetailedMovie = async (req: Request, res: Response) => {
-  console.log(req['params'])
   try {
     const movies = await axios.get(`${apiUrl}${req['params']['id']}?api_key=${process.env.TMDB_KEY}`);
     res.status(200).send(movies.data);
