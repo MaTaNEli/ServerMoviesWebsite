@@ -1,13 +1,12 @@
 import * as express from 'express';
-import * as controller from '../controller/topRated'
-import * as verify from '../token/verifyToken';
+import * as controller from '../controller/checkValidated'
 
 const router = express.Router();
 
 // ----------- Auth Post Routes -----------
 
 // ----------- Auth Get Routes -----------
-router.get('/', verify.connect ,controller.getTopRatedPage);
+router.get('/', controller.checkValidated);
 
 // ----------- Auth Delete Routes -----------
 

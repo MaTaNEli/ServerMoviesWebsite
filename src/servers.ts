@@ -8,21 +8,23 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
-app.use(cors({credentials: true, origin: '*'}));
+app.use(cors({credentials: true}));
 app.use(cors({origin: process.env.CLIENT_URL}));
 
 // Fetch all the routes for the application
 import homaPage from './routes/homaPage';
 import detailedMovie from './routes/detailedMovie'
 import topRated from './routes/topRated'
+import checkValidated from './routes/checkValidated';
 
 function errHandler(req: Request, res: Response){
   res.status(404).json({error: "Sorry could not find the page"});
 }
 
 // Routes
-app.use('/', homaPage);
 app.use('/topRated', topRated);
+app.use('/checkValidated', checkValidated);
+app.use('/', homaPage);
 app.use('/', detailedMovie);
 
 
