@@ -16,6 +16,8 @@ import homaPage from './routes/homaPage';
 import detailedMovie from './routes/detailedMovie'
 import topRated from './routes/topRated'
 import checkValidated from './routes/checkValidated';
+import nowPlaying from './routes/nowPlaing'
+import upComing from './routes/upComing'
 
 function errHandler(req: Request, res: Response){
   res.status(404).json({error: "Sorry could not find the page"});
@@ -23,9 +25,12 @@ function errHandler(req: Request, res: Response){
 
 // Routes
 app.use('/topRated', topRated);
+app.use('/upComing', upComing);
+app.use('/nowPlaying', nowPlaying);
 app.use('/checkValidated', checkValidated);
-app.use('/', homaPage);
 app.use('/', detailedMovie);
+app.use('/', homaPage);
+
 
 
 
