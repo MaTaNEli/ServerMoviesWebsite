@@ -1,5 +1,5 @@
 import * as express from 'express';
-import * as controller from '../controller/topRated'
+import * as controller from '../controller/saveToFavorite'
 import * as verify from '../token/verifyToken';
 
 const router = express.Router();
@@ -7,7 +7,7 @@ const router = express.Router();
 // ----------- Auth Post Routes -----------
 
 // ----------- Auth Get Routes -----------
-router.get('/', verify.connect ,controller.getTopRatedPage);
+router.get('/:id', verify.connect, controller.saveToFavorite);
 
 // ----------- Auth Delete Routes -----------
 

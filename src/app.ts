@@ -2,11 +2,12 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import app from './servers';
+import { initStorage } from './storage';
 
 const http = require('http').createServer(app);
 
 // Server listen on http//localhost:3000
 (async () => {
-  //await initStorage();
+  await initStorage();
   http.listen(process.env.PORT || 3000, () => console.log('Server is running'));
 })();

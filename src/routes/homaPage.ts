@@ -7,7 +7,7 @@ const router = express.Router();
 // ----------- Auth Post Routes -----------
 
 // ----------- Auth Get Routes -----------
-router.get('/', verify.connect, controller.getHomePage);
+router.get('/:url/:page', verify.connect, controller.getHomePage);
 
 // ----------- Auth Delete Routes -----------
 
