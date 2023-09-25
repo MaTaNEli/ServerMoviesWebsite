@@ -19,4 +19,8 @@ export interface IMovie {
   video: false;
   vote_average: number;
   vote_count: number;
+  Popular: boolean;
+  NowPlaying: boolean;
+  TopRated: boolean;
+  UpComing: boolean;
 }

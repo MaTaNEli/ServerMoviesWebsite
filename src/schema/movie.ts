@@ -1,24 +1,61 @@
-import mongoose from 'mongoose';
-import { IMovie } from '../interface/movieInterface';
-const { Schema } = mongoose;
+import { prop, getModelForClass } from '@typegoose/typegoose';
 
-const userSchema = new Schema<IMovie> ({
-  adult: { type: Boolean, required: true },
-  backdrop_path: { type: String },
-  genre_ids: { type: [Number], default: undefined , required: true },//Array<genres_obj>,
-  id: { type: Number, required: true, unique: true },
-  original_language: { type: String, required: true },
-  original_title: { type: String, required: true },
-  overview: { type: String, required: true },
-  popularity: { type: Number, required: true },
-  poster_path: { type: String, required: true },
-  release_date: { type: String, required: true }, 
-  title: { type: String, required: true },
-  video: { type: Boolean, required: true },
-  vote_average: { type: Number, required: true },
-  vote_count: { type: Number, required: true },
-});
+export class Movies {
+  @prop({ required: true })
+  adult!: boolean;
 
-const Movie = mongoose.model<IMovie>('Movies', userSchema);
+  @prop()
+  backdrop_path?: string;
 
-export default Movie;
+  @prop({ type: () => [Number], required: true })
+  genre_ids!: number[];
+
+  @prop({ required: true, unique: true })
+  id!: number;
+
+  @prop({ required: true })
+  original_language!: string;
+
+  @prop({ required: true })
+  original_title!: string;
+
+  @prop({ required: true })
+  overview!: string;
+
+  @prop({ required: true })
+  popularity: number;
+
+  @prop({ required: true })
+  poster_path: string;
+
+  @prop({ required: true })
+  release_date: string;
+
+  @prop({ required: true })
+  title: string;
+
+  @prop({ required: true })
+  video: boolean;
+
+  @prop({ required: true })
+  vote_average: number;
+
+  @prop({ required: true })
+  vote_count: number;
+
+  @prop({ default: false })
+  popular: boolean;
+
+  @prop({ default: false })
+  nowPlaying: boolean;
+
+  @prop({ default: false })
+  topRated: boolean;
+
+  @prop({ default: false })
+  upComing: boolean;
+}
+
+const MovieModle = getModelForClass(Movies);
+
+export default MovieModle;
