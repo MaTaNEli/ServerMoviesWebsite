@@ -15,7 +15,8 @@ app.use(cors({origin: process.env.CLIENT_URL}));
 import getMovies from './routes/homaPage';
 import detailedMovie from './routes/detailedMovie'
 import checkValidated from './routes/checkValidated';
-import saveToFavorite from './routes/saveToFavorite'
+import saveToFavorite from './routes/saveToFavorite';
+import getTvShows from './routes/getTvShows'
 function errHandler(req: Request, res: Response){
   res.status(404).json({error: "Sorry could not find the page"});
 }
@@ -23,7 +24,8 @@ function errHandler(req: Request, res: Response){
 // Routes
 app.use('/saveToFavorite', saveToFavorite);
 app.use('/checkValidated', checkValidated);
-app.use('/', detailedMovie);
+app.use('/tvShow', getTvShows);
+app.use('/details', detailedMovie);
 app.use('/', getMovies);
 
 

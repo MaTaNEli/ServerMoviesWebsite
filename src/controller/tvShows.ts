@@ -1,15 +1,16 @@
 import { Request, Response } from 'express';
 import { types } from "@typegoose/typegoose";
-import MovieModle, {Movies} from '../schema/movie';
+import TvShowModle, {TvShow} from '../schema/tvShow';
 
+const apiUrl = process.env.MOVIE_PNG_PREFIX;
 const AMOUNT = 20;
 
-export const getHomePage = async (req: Request, res: Response) => {
+export const getTvShows = async (req: Request, res: Response) => {
   const page = +req['params']['page']
   const searchVal = req['params']['url']
 
   try {
-    const results: types.DocumentType<Movies>[] = await MovieModle.find({[searchVal]: true}).
+    const results: types.DocumentType<TvShow>[] = await TvShowModle.find({[searchVal]: true}).
                                       limit(AMOUNT).skip(page).sort({popularity: -1}).exec()
     if (results.length)
       res.status(200).send(results);

@@ -1,5 +1,5 @@
 import * as express from 'express';
-import * as controller from '../controller/detaiedMovie'
+import * as controller from '../controller/tvShows'
 import * as verify from '../token/verifyToken';
 
 const router = express.Router();
@@ -7,7 +7,7 @@ const router = express.Router();
 // ----------- Auth Post Routes -----------
 
 // ----------- Auth Get Routes -----------
-router.get('/:id/:genre', verify.connect, controller.getDetailedMovie);
+router.get('/:url/:page', verify.connect, controller.getTvShows);
 
 // ----------- Auth Delete Routes -----------
 
