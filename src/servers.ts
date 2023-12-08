@@ -16,7 +16,8 @@ import getMovies from './routes/homaPage';
 import detailedMovie from './routes/detailedMovie'
 import checkValidated from './routes/checkValidated';
 import saveToFavorite from './routes/saveToFavorite';
-import getTvShows from './routes/getTvShows'
+import getTvShows from './routes/getTvShows';
+import signOut from './routes/signOut';
 function errHandler(req: Request, res: Response){
   res.status(404).json({error: "Sorry could not find the page"});
 }
@@ -26,6 +27,7 @@ app.use('/saveToFavorite', saveToFavorite);
 app.use('/checkValidated', checkValidated);
 app.use('/tvShow', getTvShows);
 app.use('/details', detailedMovie);
+app.use('/signOut', signOut);
 app.use('/', getMovies);
 
 
