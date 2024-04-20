@@ -24,3 +24,8 @@ export interface IMovie {
   TopRated: boolean;
   UpComing: boolean;
 }
+
+export interface User {
+  "id": number,
+  "name": string,
+}
